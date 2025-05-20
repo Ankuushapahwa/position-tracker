@@ -6,7 +6,8 @@ import urllib.error
 # === CACHED SYMBOL LOADING ===
 @st.cache_data
 def load_symbols():
-    url = 'https://raw.githubusercontent.com/datasets/nse/master/data/nse-listed.csv'
+    # Updated source for NSE-listed symbols
+    url = 'https://datahub.io/core/nse-listed/r/nse-listed.csv'
     try:
         df_sym = pd.read_csv(url)
         return df_sym['Symbol'].dropna().tolist()
